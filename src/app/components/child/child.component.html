@@ -1,0 +1,19 @@
+<div>
+    <h3>Detalle de {{user.name }}</h3>
+    <form>
+      <div>
+          <label>Nombre: </label>
+          <input name="name" [(ngModel)]="user.name">
+      </div>
+      <div>
+          <label>Email: </label>
+          <input name="email" [(ngModel)]="user.email">
+      </div>
+      <div>
+          <label>Teléfono: </label>
+          <input name="phone" [(ngModel)]="user.phone">
+      </div>
+      <button>Guardar</button>
+      <button (click)="eliminar()">Eliminar</button>
+    </form>
+</div>

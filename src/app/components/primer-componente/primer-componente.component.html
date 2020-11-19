@@ -1,0 +1,15 @@
+<p>Hola, {{ nombre }}</p>
+<p [appHighlight]="bgColor">Hola, {{ persona.nombre | slice:1:3 }}</p>
+<p>Hola, {{ nombreCompleto() }}</p>
+
+<input value="{{ nombre }}" appHighlight="blue"/>
+<input [value]="nombre | slice:1:3 | uppercase" (keyup)="cambiarNombreDesdeInput($event.target.value)" />
+<input [value]="nombre" (keyup)="nombre = $event.target.value" />
+<input [(ngModel)]="persona.nombre" />
+
+<button (click)="cambiarNombre($event)">Click Me!</button>
+
+<p>{{ numero | power:exponente }}</p>
+
+<p appHighlight>aquí acaba primer component</p>
+
