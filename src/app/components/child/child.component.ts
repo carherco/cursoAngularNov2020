@@ -14,9 +14,12 @@ export class ChildComponent implements OnInit {
   @Output()
   eliminarEvent: EventEmitter<User> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    console.log(this.user); // <- undefined
+  }
 
   ngOnInit(): void {
+    console.log(this.user); // <- el valor que venga por input
   }
 
   eliminar(): void {

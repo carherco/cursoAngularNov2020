@@ -1,0 +1,12 @@
+
+<input (keyup)="onKey($event.target.value)">
+<p>{{values}}</p>
+
+<input (keyup)="values2 = $event.target.value">
+<p>{{values2}}</p>
+
+<input #nombre>
+<p>{{ nombre.value }}</p>
+
+
+

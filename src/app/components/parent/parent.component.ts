@@ -9,14 +9,25 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ParentComponent implements OnInit {
 
-  users: User[];
+  users: User[] = [];
   newUser: User;
   selectedUser: User | null = null;
 
   constructor(private userService: UserService) {
-    this.users = this.userService.getUsers();
+    // this.users = this.userService.getUsers();
+
+    console.log('antes del subscribe');
+    this.userService.getUsers().subscribe(
+      (respuestaServidor: User[]) => {
+        console.log('dentro del subscribe');
+        this.users = respuestaServidor;
+      }
+    );
+    console.log('después del subscribe');
 
     this.newUser = new User(11);
+
+    console.log(this.users.length);
     // this.selectedUser = new User();
   }
 

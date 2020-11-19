@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { USERS } from 'src/app/data/users';
 import { User } from 'src/app/model/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -9,11 +10,17 @@ import { User } from 'src/app/model/user';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = USERS;
+  users: User[];
   newUser: User;
   selectedUser: User | null = null;
 
-  constructor() {
+  constructor(private userService: UserService) {
+    this.userService.getUsers().subscribe(
+      (respuestaServidor: User[]) => {
+        console.log('dentro del subscribe');
+        this.users = respuestaServidor;
+      }
+    );
     this.newUser = new User(11);
     // this.selectedUser = new User();
   }
